@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { colors } from 'globalStyles'
 
-const Circle = styled.div`
+const StyledCircle = styled.div`
   background-color: ${({ color }) => color ? color : 'transparent'};
   border: 2px solid ${colors.DARK};
   border-radius: 50%;
@@ -11,4 +11,4 @@ const Circle = styled.div`
   margin: 0 0.125em;
 `;
 
-export default Circle;
+export default StyledCircle;

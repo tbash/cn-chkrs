@@ -8,10 +8,11 @@ import { fromJS } from 'immutable';
 import {
   TOGGLE_GAME_STARTED,
   RECEIVE_PLAYERS,
-  INCREMENT_SCORE,
-  DECREMENT_SCORE,
+  SET_SCORE,
   RECEIVE_BOARD,
   RESET_GAME,
+  TAKE_TURN,
+  SET_CURRENT_PLAYER,
 } from './constants';
 import { Player, Position } from './records';
 
@@ -33,10 +34,18 @@ function gameReducer(state = initialState, action) {
       return state.set('players', mapPlayers(action.payload.players));
     case RECEIVE_BOARD:
       return state.set('board', mapBoard(action.payload.positions));
-    case INCREMENT_SCORE:
-      return state.updateIn(['players', action.payload.playerId], v => v + 1);
-    case DECREMENT_SCORE:
-      return state.updateIn(['players', action.payload.playerId], v => v - 1);
+    case SET_SCORE:
+      return state.setIn(['players', action.payload.playerId, 'score'], action.payload.score);
+    case SET_CURRENT_PLAYER:
+      return state.set('currentPlayer', action.payload.playerId);
+    case TAKE_TURN:
+      const { oldIndex, newIndex, currentPlayer } = action.payload;
+
+      return state.withMutations(mutableState => {
+        mutableState
+          .mergeIn(['board', oldIndex], { occupyingPlayer: null })
+          .mergeIn(['board', newIndex], { occupyingPlayer: currentPlayer })
+      });
     case RESET_GAME:
       return initialState;
     default:

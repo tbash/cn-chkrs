@@ -18,8 +18,8 @@ const LeaderBoard = ({ players, currentPlayer, resetGame }) => (
         <PlayerItem
           key={i}
           color={p.color()}>
-          {`Player ${i}: ${p.score()}`}
-          {currentPlayer === i ? ' (current player)' : ''}
+          {`Player ${i+1} Score: ${p.score()}`}
+          {currentPlayer === i ? ' (taking turn)' : ''}
         </PlayerItem>
       )}
     </PlayerList>

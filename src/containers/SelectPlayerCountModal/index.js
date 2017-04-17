@@ -23,8 +23,10 @@ export const SelectPlayerCountModal = ({ close, setPlayerCount }) => {
   return (
     <Modal title='Select Player Count' close={close}>
       <Wrapper>
+        <H2>So this is Chinese Checkers.</H2>
         <H2>How many people actually want to play?</H2>
         {[2,3,4,5,6].map(pc => renderButton(pc))}
+        <H2>(defaults to 2 players)</H2>
       </Wrapper>
     </Modal>
   );

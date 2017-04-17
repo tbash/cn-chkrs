@@ -8,12 +8,13 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import {
-  selectScoreOrderedPlayers,
   selectBoard,
   selectCurrentPlayer,
+  selectPlayers,
 } from './selectors';
 import {
   resetGame,
+  takeTurn,
 } from './actions';
 import Wrapper from './Wrapper';
 
@@ -22,7 +23,13 @@ import LeaderBoard from 'components/LeaderBoard';
 
 export class Game extends React.PureComponent {
   render() {
-    const { board, players, currentPlayer, resetGame } = this.props;
+    const {
+      board,
+      players,
+      currentPlayer,
+      resetGame,
+      takeTurn,
+    } = this.props;
 
     return (
       <Wrapper>
@@ -30,6 +37,7 @@ export class Game extends React.PureComponent {
           board={board}
           players={players}
           currentPlayer={currentPlayer}
+          takeTurn={takeTurn}
         />
         <LeaderBoard
           players={players}
@@ -42,13 +50,15 @@ export class Game extends React.PureComponent {
 }
 
 const mapStateToProps = createStructuredSelector({
-  players: selectScoreOrderedPlayers(),
+  players: selectPlayers(),
   board: selectBoard(),
   currentPlayer: selectCurrentPlayer(),
 });
 
 const mapDispatchToProps = (dispatch) => ({
   resetGame: () => dispatch(resetGame()),
+  takeTurn: (oldIndex, newIndex, currentPlayer) =>
+    dispatch(takeTurn({ oldIndex, newIndex, currentPlayer })),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Game);

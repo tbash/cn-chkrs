@@ -8,10 +8,11 @@ import {
   TOGGLE_GAME_STARTED,
   RECEIVE_PLAYERS,
   RECEIVE_BOARD,
-  INCREMENT_SCORE,
-  DECREMENT_SCORE,
+  SET_SCORE,
   SET_PLAYER_COUNT,
   RESET_GAME,
+  TAKE_TURN,
+  SET_CURRENT_PLAYER,
 } from './constants';
 
 export const toggleGameStarted = () => ({
@@ -32,17 +33,11 @@ export const receiveBoard = ({ positions }) => ({
   }
 });
 
-export const incrementScore = ({ playerId }) => ({
-  type: INCREMENT_SCORE,
+export const setScore = ({ playerId, score }) => ({
+  type: SET_SCORE,
   payload: {
-    playerId
-  }
-});
-
-export const decrementScore = ({ playerId }) => ({
-  type: DECREMENT_SCORE,
-  payload: {
-    playerId
+    playerId,
+    score
   }
 });
 
@@ -55,4 +50,20 @@ export const setPlayerCount = ({ playerCount }) => ({
 
 export const resetGame = () => ({
   type: RESET_GAME,
+});
+
+export const takeTurn = ({ oldIndex, newIndex, currentPlayer }) => ({
+  type: TAKE_TURN,
+  payload: {
+    oldIndex,
+    newIndex,
+    currentPlayer
+  }
+});
+
+export const setCurrentPlayer = ({ playerId }) => ({
+  type: SET_CURRENT_PLAYER,
+  payload: {
+    playerId,
+  }
 });

@@ -9,7 +9,6 @@ import ReactModal from 'react-modal';
 import modalStyles from './modalStyles';
 
 import CloseButton from './CloseButton';
-import Title from './Title';
 import Content from './Content';
 
 const Modal = ({ close, children, title }) => (
@@ -22,9 +21,6 @@ const Modal = ({ close, children, title }) => (
     <CloseButton onClick={close}>
       {"\u2716"}
     </CloseButton>
-    <Title>
-      {title}
-    </Title>
     <Content>
       {children}
     </Content>

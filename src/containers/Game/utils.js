@@ -17,9 +17,10 @@ const BOTTOM_LEFT  = [65, 75, 76, 86, 87, 88, 98, 99, 100, 101];
 const TOP_LEFT     = [10, 11, 12, 13, 23, 24, 25, 35, 36, 46];
 
 export const generatePlayers = (playerCount) =>
-  playerColors.slice(0, playerCount).map(color => ({ color }));
+  playerColors.slice(0, playerCount).map((color, i) => ({ color, id: i + 1 }));
 
 const between = (x, min, max) => x >= min && x <= max;
+
 const assignRow = (i) => (
   i === 0
     ? 0
@@ -83,7 +84,8 @@ export const generateBoard = (playerCount) => {
         return {
           occupyingPlayer,
           scoringPlayer,
-          row
+          row,
+          index: i,
         };
       });
     case 4:
@@ -115,7 +117,8 @@ export const generateBoard = (playerCount) => {
         return {
           occupyingPlayer,
           scoringPlayer,
-          row
+          row,
+          index: i,
         };
       });
     case 5:
@@ -151,7 +154,8 @@ export const generateBoard = (playerCount) => {
         return {
           occupyingPlayer,
           scoringPlayer,
-          row
+          row,
+          index: i,
         };
       });
     case 6:
@@ -191,7 +195,8 @@ export const generateBoard = (playerCount) => {
         return {
           occupyingPlayer,
           scoringPlayer,
-          row
+          row,
+          index: i,
         };
       });
     case 2:
@@ -216,7 +221,8 @@ export const generateBoard = (playerCount) => {
         return {
           occupyingPlayer,
           scoringPlayer,
-          row
+          row,
+          index: i,
         };
       });
   }

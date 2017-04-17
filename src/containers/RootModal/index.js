@@ -11,12 +11,15 @@ import { selectModalType, selectModalProps } from './selectors';
 import { clearModal } from './actions';
 import {
   SELECT_PLAYER_COUNT,
+  WINNER,
 } from './constants';
 
 import SelectPlayerCountModal from 'containers/SelectPlayerCountModal';
+import WinnerModal from 'containers/WinnerModal';
 
 const MODAL_COMPONENTS = {
   [SELECT_PLAYER_COUNT]: SelectPlayerCountModal,
+  [WINNER]: WinnerModal,
 };
 
 export const RootModal = ({ modalType, modalProps, close }) => {
