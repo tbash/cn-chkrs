@@ -19,7 +19,7 @@ const Modal = ({ close, children, title }) => (
     style={modalStyles}
     shouldCloseOnOverlayClick={true}
     contentLabel={title}>
-    <CloseButton onClick={() => close()}>
+    <CloseButton onClick={close}>
       {"\u2716"}
     </CloseButton>
     <Title>

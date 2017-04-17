@@ -9,10 +9,10 @@ import React, { Children } from 'react';
 import StyledButton from './StyledButton';
 import Wrapper from './Wrapper';
 
-const Button = ({ href, onClick, handleRoute, children }) => {
+const Button = ({ onClick, children }) => {
   return (
     <Wrapper>
-      <StyledButton onClick={handleRoute}>
+      <StyledButton onClick={onClick}>
         {Children.toArray(children)}
       </StyledButton>
     </Wrapper>

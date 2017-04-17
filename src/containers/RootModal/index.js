@@ -10,9 +10,13 @@ import { createStructuredSelector } from 'reselect';
 import { selectModalType, selectModalProps } from './selectors';
 import { clearModal } from './actions';
 import {
+  SELECT_PLAYER_COUNT,
 } from './constants';
 
+import SelectPlayerCountModal from 'containers/SelectPlayerCountModal';
+
 const MODAL_COMPONENTS = {
+  [SELECT_PLAYER_COUNT]: SelectPlayerCountModal,
 };
 
 export const RootModal = ({ modalType, modalProps, close }) => {

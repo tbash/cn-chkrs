@@ -1,17 +1,44 @@
 import {
-  defaultAction,
+  toggleGameStarted,
+  receivePlayers,
+  receiveBoard,
+  setPlayerCount,
 } from '../actions';
 import {
-  DEFAULT_ACTION,
+  TOGGLE_GAME_STARTED,
+  RECEIVE_PLAYERS,
+  RECEIVE_BOARD,
+  SET_PLAYER_COUNT,
 } from '../constants';
 
 describe('Game actions', () => {
-  describe('Default Action', () => {
-    it('has a type of DEFAULT_ACTION', () => {
-      const expected = {
-        type: DEFAULT_ACTION,
+  describe('toggleGameStarted', () => {
+    it('has correct type', () => { const expected = {
+        type: TOGGLE_GAME_STARTED,
       };
-      expect(defaultAction()).toEqual(expected);
+      expect(toggleGameStarted()).toEqual(expected);
+    });
+  });
+
+  describe('receivePlayers', () => {
+    it('has correct type and payload', () => {
+      const players = [];
+      const expected = {
+        type: RECEIVE_PLAYERS,
+        payload: { players }
+      };
+      expect(receivePlayers({ players })).toEqual(expected);
+    });
+  });
+
+  describe('receiveBoard', () => {
+    it('has correct type and payload', () => {
+      const positions = [];
+      const expected = {
+        type: RECEIVE_BOARD,
+        payload: { positions }
+      };
+      expect(receiveBoard({ positions })).toEqual(expected);
     });
   });
 });

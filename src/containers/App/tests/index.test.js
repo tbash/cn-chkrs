@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { fromJS } from 'immutable';
 import Wrapper from '../Wrapper';
 
 // The App Conatainer contains other "connected" containers,

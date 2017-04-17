@@ -1,26 +1,28 @@
 import styled from 'styled-components';
-import { colors } from 'globalStyles';
+import { colors } from 'globalStyles'
 
-const StyledButton = styled.button`
+const CircleButton = styled.button`
+  border: 2px solid ${colors.SECONDARY};
+  border-radius: 50%;
+  width: 3em;
+  height: 3em;
   display: inline-block;
   box-sizing: border-box;
-  padding: 1em 2em;
+  margin: 1em;
   text-decoration: none;
-  border-radius: 4px;
   user-select: none;
   cursor: pointer;
   outline: 0;
   font-weight: bold;
   font-size: 16px;
-  border: 2px solid ${colors.PRIMARY};
-  color: ${colors.PRIMARY};
+  color: ${colors.SECONDARY};
   background: transparent;
   transition: all .2s ease;
 
   &:active {
-    background: ${colors.PRIMARY};
+    background: ${colors.SECONDARY};
     color: ${colors.LIGHT};
   }
 `;
 
-export default StyledButton;
+export default CircleButton;
