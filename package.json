@@ -1,5 +1,6 @@
 {
   "name": "cn_chkrs",
+  "homepage": "http://tbash.github.io/cn_chkrs",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
