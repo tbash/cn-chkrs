@@ -17,3 +17,4 @@ $ yarn run test     # Run test suite
 $ yarn run build    # Build to build/ dir
 $ serve -s build    # Serve from build/ dir
 ```
+
